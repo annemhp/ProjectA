@@ -1,0 +1,34 @@
+<h1>Issues</h1>
+<span > <search-department (status) = "onStatusChange($event)"></search-department> 
+ </span>
+
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Place</th>
+			<th>Department</th>
+			<th>Subject</th>
+			<th>Status</th>
+			<th>Edit</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="#issue of issues">
+			<td>{{ issuesObj[issue].name}}</td>
+			<td>{{ issuesObj[issue].place }}</td>
+			<td>{{ departmentsMap[issuesObj[issue].department] }}</td>
+			<td>{{ issuesObj[issue].subject }}</td>
+			<td>{{ statuses[issuesObj[issue].status] }}</td>
+			<td>
+				<a [routerLink]="['IssueDetails', { id: issue}]">
+					<i class="glyphicon glyphicon-edit"></i>
+				</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	<a [routerLink]="['NewIssue']" class="btn btn-primary">Add Issue</a>
+</p>

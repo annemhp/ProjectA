@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-6 well">
+        <form [ngFormModel]="form" (ngSubmit)="search()">
+            <fieldset>
+                <legend>
+                   Search by Status
+                </legend>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select ngControl="status" #frequency="ngForm" id="status" class="form-control" 
+                    required>
+                        <option value="all">All</option>
+                        <option *ngFor="#status of statuses" value="{{ status.id }}">
+                        {{ status.label }}
+                        </option>
+                    </select>
+                </div>
+            </fieldset>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</div>
