@@ -23,7 +23,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 }
                 HomeComponent = __decorate([
                     core_1.Component({
-                        template: '<body background-size= "cover" background="../assets/images/Home.jpg"></body>'
+                        template: '<body background-size= "cover" background="../assets/images/Home.png"></body>'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], HomeComponent);
