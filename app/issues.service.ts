@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 export class IssuesService {
 
 	private _url1 = "https://projecta1-5156a.firebaseio.com/issues";
+	private _url_report = "https://projecta1-5156a.firebaseio.com/reports";
 
 	constructor(private _http: Http) {
 	}
@@ -17,12 +18,19 @@ export class IssuesService {
 			);
 	}
 
+	getReport() {
+		return this._http.
+			get(this._url_report + ".json")
+			.map(res => res.json()
+			);
+
+	}
 
 	getIssuesByStatus(status) {
 		return this._http.
-			get(this._url1 + `.json?orderBy="status"&equalTo="`+status+'"')
+			get(this._url1 + `.json?orderBy="status"&equalTo="` + status + '"')
 			.map(res => res.json()
-			);	
+			);
 	}
 
 	addIssue(issue) {

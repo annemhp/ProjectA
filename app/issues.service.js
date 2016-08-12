@@ -26,10 +26,16 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
                 function IssuesService(_http) {
                     this._http = _http;
                     this._url1 = "https://projecta1-5156a.firebaseio.com/issues";
+                    this._url_report = "https://projecta1-5156a.firebaseio.com/reports";
                 }
                 IssuesService.prototype.getIssues = function () {
                     return this._http.
                         get(this._url1 + ".json")
+                        .map(function (res) { return res.json(); });
+                };
+                IssuesService.prototype.getReport = function () {
+                    return this._http.
+                        get(this._url_report + ".json")
                         .map(function (res) { return res.json(); });
                 };
                 IssuesService.prototype.getIssuesByStatus = function (status) {
