@@ -9,7 +9,10 @@ import { UserService } from './user.service';
     providers: [UserService]
 })
 export class NavBarComponent {
-    constructor(private _router: Router,private userService: UserService) {
+
+    isLoggedIn = false;
+    constructor(private _router: Router, private userService: UserService) {
+        _router.subscribe(val => this.hideNav(val))
     }
 
     isCurrentRoute(route) {
@@ -17,8 +20,17 @@ export class NavBarComponent {
         return this._router.isRouteActive(instruction);
     }
 
-    logout(){
+    logout() {
         this.userService.logout();
-         this._router.navigate(['Login']);
+        this._router.navigate(['Login']);
+    }
+
+    hideNav(path) {
+        if (path == 'login') {
+            this.isLoggedIn = false;
+        } else {
+            this.isLoggedIn = true;
+        }
+
     }
 }

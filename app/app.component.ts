@@ -41,14 +41,8 @@ import { UserService } from './user.service';
             <router-outlet></router-outlet>
         </div>
     `,
-    directives: [NavBarComponent, ROUTER_DIRECTIVES],
-    providers: [UserService]
+    directives: [NavBarComponent, ROUTER_DIRECTIVES]
 })
 export class AppComponent {
 
-constructor(private userService: UserService) { }
-
-    ngOnInit(){
-       
-    }
  }

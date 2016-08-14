@@ -13,11 +13,6 @@ export class UserService {
 
   login(email, password) {
     this.res = new Object();
-    console.log(email);
-
-    console.log(password);
-
-
     if (email == "mymla" && password == "mymla") {
       this.res.success = true;
       this.res.auth_token = this.guid();

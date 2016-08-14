@@ -29,8 +29,6 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
                 }
                 UserService.prototype.login = function (email, password) {
                     this.res = new Object();
-                    console.log(email);
-                    console.log(password);
                     if (email == "mymla" && password == "mymla") {
                         this.res.success = true;
                         this.res.auth_token = this.guid();

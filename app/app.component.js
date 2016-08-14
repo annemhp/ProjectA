@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './login-home.component', './login.component', './navbar.component', './home.component', './issues.component', './issue-form.component', './issue-details.component', './not-found.component', './reports.component', './user.service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './login-home.component', './login.component', './navbar.component', './home.component', './issues.component', './issue-form.component', './issue-details.component', './not-found.component', './reports.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './login-home.component', '
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, login_home_component_1, login_component_1, navbar_component_1, home_component_1, issues_component_1, issue_form_component_1, issue_details_component_1, not_found_component_1, reports_component_1, user_service_1;
+    var core_1, router_1, login_home_component_1, login_component_1, navbar_component_1, home_component_1, issues_component_1, issue_form_component_1, issue_details_component_1, not_found_component_1, reports_component_1;
     var AppComponent;
     return {
         setters:[
@@ -46,17 +46,11 @@ System.register(['angular2/core', 'angular2/router', './login-home.component', '
             },
             function (reports_component_1_1) {
                 reports_component_1 = reports_component_1_1;
-            },
-            function (user_service_1_1) {
-                user_service_1 = user_service_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent(userService) {
-                    this.userService = userService;
+                function AppComponent() {
                 }
-                AppComponent.prototype.ngOnInit = function () {
-                };
                 AppComponent = __decorate([
                     router_1.RouteConfig([
                         { path: '/', component: login_home_component_1.LoginHomeComponent, name: 'LoginHome', useAsDefault: true },
@@ -72,10 +66,9 @@ System.register(['angular2/core', 'angular2/router', './login-home.component', '
                     core_1.Component({
                         selector: 'my-app',
                         template: "\n        <navbar ></navbar>\n        <div class=\"container\">\n            <router-outlet></router-outlet>\n        </div>\n    ",
-                        directives: [navbar_component_1.NavBarComponent, router_1.ROUTER_DIRECTIVES],
-                        providers: [user_service_1.UserService]
+                        directives: [navbar_component_1.NavBarComponent, router_1.ROUTER_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [user_service_1.UserService])
+                    __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;
             }());

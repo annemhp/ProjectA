@@ -26,8 +26,11 @@ System.register(['angular2/core', 'angular2/router', './user.service'], function
         execute: function() {
             NavBarComponent = (function () {
                 function NavBarComponent(_router, userService) {
+                    var _this = this;
                     this._router = _router;
                     this.userService = userService;
+                    this.isLoggedIn = false;
+                    _router.subscribe(function (val) { return _this.hideNav(val); });
                 }
                 NavBarComponent.prototype.isCurrentRoute = function (route) {
                     var instruction = this._router.generate(route);
@@ -36,6 +39,14 @@ System.register(['angular2/core', 'angular2/router', './user.service'], function
                 NavBarComponent.prototype.logout = function () {
                     this.userService.logout();
                     this._router.navigate(['Login']);
+                };
+                NavBarComponent.prototype.hideNav = function (path) {
+                    if (path == 'login') {
+                        this.isLoggedIn = false;
+                    }
+                    else {
+                        this.isLoggedIn = true;
+                    }
                 };
                 NavBarComponent = __decorate([
                     core_1.Component({
