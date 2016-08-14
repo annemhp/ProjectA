@@ -33,7 +33,7 @@ System.register(['angular2/core', './status-code'], function(exports_1, context_
                 UpdateListComponent = __decorate([
                     core_1.Component({
                         selector: 'update-list',
-                        template: "<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">\n    <h2 class=\"panel-title\">Updates </h2>\n  </div>\n  <div *ngIf=\"updates!=null\" class=\"panel-body\">\n  <table class=\"table table-bordered\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Date</th>\n\t\t\t<th>Message</th>\n            <th>Status</th>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr *ngFor=\"#update of updates\">\n\t\t\t<td>{{ update.date}}</td>\n\t\t\t<td>{{ update.message }}</td>\n            <td>{{ statuses[update.status] }}</td>\n\t\t</tr>\n\t</tbody>\n</table>\n  </div>\n</div>"
+                        template: "<div [ngStyle] = \"{'margin-left':'6%', 'margin-top':'1%'}\" class=\"panel panel-default\">\n  <div class=\"panel-heading\">\n    <h2 class=\"panel-title\">Updates </h2>\n  </div>\n  <div *ngIf=\"updates!=null\" class=\"panel-body\">\n  <table class=\"table table-bordered\">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Date</th>\n\t\t\t<th>Message</th>\n            <th>Status</th>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr *ngFor=\"#update of updates\">\n\t\t\t<td>{{ update.date}}</td>\n\t\t\t<td>{{ update.message }}</td>\n            <td>{{ statuses[update.status] }}</td>\n\t\t</tr>\n\t</tbody>\n</table>\n  </div>\n</div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], UpdateListComponent);

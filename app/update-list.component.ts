@@ -3,7 +3,7 @@ import {StatusCode} from './status-code';
 
 @Component({
 	selector: 'update-list',
-	template: `<div class="panel panel-default">
+	template: `<div [ngStyle] = "{'margin-left':'6%', 'margin-top':'1%'}" class="panel panel-default">
   <div class="panel-heading">
     <h2 class="panel-title">Updates </h2>
   </div>

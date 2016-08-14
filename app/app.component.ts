@@ -2,10 +2,7 @@ import {Component ,OnInit} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 
-import { LoginHomeComponent } from './login-home.component';
 import { LoginComponent } from './login.component';
-
-
 import {NavBarComponent} from './navbar.component'
 import {HomeComponent} from './home.component';
 import {IssuesComponent} from './issues.component';
@@ -18,10 +15,8 @@ import {ReportsComponent} from './reports.component';
 import {UpdateFormComponent} from './update-form.component'
 import {SearchDepartmentComponent} from './search-department';
 
-import { UserService } from './user.service';
-
 @RouteConfig([
-    { path: '/', component: LoginHomeComponent, name: 'LoginHome', useAsDefault: true },
+    { path: '/', component: LoginComponent, name: 'LoginHome', useAsDefault: true },
     { path: '/login', name: 'Login', component: LoginComponent },
     { path: '/home', name: 'Home', component: HomeComponent },
     { path: '/issues', name: 'Issues', component: IssuesComponent },
@@ -36,8 +31,9 @@ import { UserService } from './user.service';
 @Component({
     selector: 'my-app',
     template: `
+    
         <navbar ></navbar>
-        <div class="container">
+        <div class="container"  [ngStyle]="{'margin':'0px' , 'padding': '0px'}" >
             <router-outlet></router-outlet>
         </div>
     `,

@@ -1,4 +1,4 @@
-<div class="row">
+<div [ngStyle] = "{'margin-left':'6%', 'margin-top':'1%'}" class="row">
     <div class="col-md-6 well">
         <form [ngFormModel]="form" (ngSubmit)="save()">
             <fieldset>
@@ -7,7 +7,8 @@
                 </legend>
                 <div class="form-group">
                     <label>Message</label>
-                    <input ngControl="message" type="text" class="form-control">
+                    <textarea ngControl="message" type="textarea"  cols ="30" rows="10" class="form-control">
+                    </textarea>
                 </div>
                 <div class="form-group">
                     <label>Status</label>

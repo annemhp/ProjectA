@@ -4,7 +4,8 @@ import {DepartmentCode} from './department-code';
 
 @Component({
     selector: 'reports',
-    template: `<table class="table table-bordered">
+    template: `<table [ngStyle] =
+                    "{'margin-left':'6%', 'margin-top':'5%'}"class="table table-bordered">
 	<thead>
 		<tr>
 			<th>Department</th>
@@ -24,14 +25,16 @@ import {DepartmentCode} from './department-code';
 		</tr>
 	</tbody>
 </table>
-<div>*Reports will be update daily midnight<div>`,
+<div [ngStyle] =
+          "{'margin-left':'6%', 'margin-top':'1%'}" >
+		*Reports will be update daily midnight<div>`,
     providers: [IssuesService]
 })
 export class ReportsComponent implements OnInit {
     reportObj: any;
-    departments:any;
-departmentCode = new DepartmentCode();
-	departmentsMap :any;
+    departments: any;
+	departmentCode = new DepartmentCode();
+	departmentsMap: any;
 
     constructor(private _service: IssuesService) {
         this.departmentsMap = this.departmentCode.departmentsMap;
@@ -42,7 +45,7 @@ departmentCode = new DepartmentCode();
 
         this._service.getReport()
             .subscribe(report => {
-                this.reportObj =report;
+                this.reportObj = report;
                 this.departments = Object.keys(report);
 
             });

@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './login-home.component', './login.component', './navbar.component', './home.component', './issues.component', './issue-form.component', './issue-details.component', './not-found.component', './reports.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './login.component', './navbar.component', './home.component', './issues.component', './issue-form.component', './issue-details.component', './not-found.component', './reports.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './login-home.component', '
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, login_home_component_1, login_component_1, navbar_component_1, home_component_1, issues_component_1, issue_form_component_1, issue_details_component_1, not_found_component_1, reports_component_1;
+    var core_1, router_1, login_component_1, navbar_component_1, home_component_1, issues_component_1, issue_form_component_1, issue_details_component_1, not_found_component_1, reports_component_1;
     var AppComponent;
     return {
         setters:[
@@ -19,9 +19,6 @@ System.register(['angular2/core', 'angular2/router', './login-home.component', '
             },
             function (router_1_1) {
                 router_1 = router_1_1;
-            },
-            function (login_home_component_1_1) {
-                login_home_component_1 = login_home_component_1_1;
             },
             function (login_component_1_1) {
                 login_component_1 = login_component_1_1;
@@ -53,7 +50,7 @@ System.register(['angular2/core', 'angular2/router', './login-home.component', '
                 }
                 AppComponent = __decorate([
                     router_1.RouteConfig([
-                        { path: '/', component: login_home_component_1.LoginHomeComponent, name: 'LoginHome', useAsDefault: true },
+                        { path: '/', component: login_component_1.LoginComponent, name: 'LoginHome', useAsDefault: true },
                         { path: '/login', name: 'Login', component: login_component_1.LoginComponent },
                         { path: '/home', name: 'Home', component: home_component_1.HomeComponent },
                         { path: '/issues', name: 'Issues', component: issues_component_1.IssuesComponent },
@@ -65,7 +62,7 @@ System.register(['angular2/core', 'angular2/router', './login-home.component', '
                     ]),
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <navbar ></navbar>\n        <div class=\"container\">\n            <router-outlet></router-outlet>\n        </div>\n    ",
+                        template: "\n    \n        <navbar ></navbar>\n        <div class=\"container\"  [ngStyle]=\"{'margin':'0px' , 'padding': '0px'}\" >\n            <router-outlet></router-outlet>\n        </div>\n    ",
                         directives: [navbar_component_1.NavBarComponent, router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])

@@ -11,7 +11,7 @@ System.register(['angular2/core', './login.component'], function(exports_1, cont
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, login_component_1;
-    var LoginHomeComponent;
+    var HomePanelComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,20 +21,29 @@ System.register(['angular2/core', './login.component'], function(exports_1, cont
                 login_component_1 = login_component_1_1;
             }],
         execute: function() {
-            LoginHomeComponent = (function () {
-                function LoginHomeComponent() {
+            HomePanelComponent = (function () {
+                function HomePanelComponent() {
                 }
-                LoginHomeComponent = __decorate([
+                __decorate([
+                    core_1.Input('panelTitle'), 
+                    __metadata('design:type', Object)
+                ], HomePanelComponent.prototype, "panelTitle", void 0);
+                __decorate([
+                    core_1.Input('panelText'), 
+                    __metadata('design:type', Object)
+                ], HomePanelComponent.prototype, "panelText", void 0);
+                HomePanelComponent = __decorate([
                     core_1.Component({
-                        template: '<login> </login>',
+                        selector: 'home-panel',
+                        template: "<div  [ngStyle]=\"{'width': '200px', 'margin-left':'10%'}\"  \n    class=\"panel panel-default\">\n  <div class=\"panel-heading\">\n    <h3 class=\"panel-title\">{{panelTitle}}</h3>\n  </div>\n  <div class=\"panel-body\">\n   {{panelText}}\n  </div>\n</div>",
                         directives: [login_component_1.LoginComponent]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], LoginHomeComponent);
-                return LoginHomeComponent;
+                ], HomePanelComponent);
+                return HomePanelComponent;
             }());
-            exports_1("LoginHomeComponent", LoginHomeComponent);
+            exports_1("HomePanelComponent", HomePanelComponent);
         }
     }
 });
-//# sourceMappingURL=login-home.component.js.map
+//# sourceMappingURL=home-panel.component.js.map

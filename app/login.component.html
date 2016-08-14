@@ -1,8 +1,12 @@
-<form [ngFormModel] = "form" (ngSubmit)= "signIn()">
+<body   [ngStyle] ="{'background-image': 'url(../assets/images/FinalHome.png)' 
+                    , 'background-size':'cover' ,  'min-width': '1265px'} ">
+<form  [ngStyle]="{'width': '300px', 'margin-left':'10%' , 'padding-top': '7%'}" 
+        [ngFormModel] = "form" (ngSubmit)= "signIn()">
+    <h1 style="margin-top: 0%;"> Sign In</h1>
     <div class="form-group">
         <label for="username">Username</label>
         <input 
-            id="username" 
+            id="username"    
             type="text" 
             class="form-control"
             ngControl="username"
@@ -24,5 +28,6 @@
     <div  *ngIf ="invalidCredentials" 
             class ="alert alert-danger"> UserId or Password is Invalid</div>
 
-    <button class="btn btn-primary" type="submit">Sign In</button>
+    <button style="align: center" class="btn btn-primary" type="submit">Sign In</button>
 </form>
+</body>
