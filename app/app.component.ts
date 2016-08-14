@@ -23,7 +23,7 @@ import {SearchDepartmentComponent} from './search-department';
     { path: '/issues/new', name: 'NewIssue', component: IssueFormComponent },
     { path: '/users/:id', name: 'IssueDetails', component: IssueDetailsComponent },
     { path: '/reports', name: 'Reports', component: ReportsComponent },
-    { path: '/*other', name: 'Other', redirectTo: ['Home'] },
+    { path: '/*other', name: 'Other', redirectTo: ['Login'] },
     { path: '/not-found', name: 'NotFound', component: NotFoundComponent }
 
 ])

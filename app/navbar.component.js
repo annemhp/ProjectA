@@ -31,6 +31,9 @@ System.register(['angular2/core', 'angular2/router', './user.service'], function
                     this.userService = userService;
                     this.isLoggedIn = false;
                     _router.subscribe(function (val) { return _this.hideNav(val); });
+                    if (!this.userService.isLoggedIn()) {
+                        this._router.navigate(['Login']);
+                    }
                 }
                 NavBarComponent.prototype.isCurrentRoute = function (route) {
                     var instruction = this._router.generate(route);

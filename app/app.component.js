@@ -57,7 +57,7 @@ System.register(['angular2/core', 'angular2/router', './login.component', './nav
                         { path: '/issues/new', name: 'NewIssue', component: issue_form_component_1.IssueFormComponent },
                         { path: '/users/:id', name: 'IssueDetails', component: issue_details_component_1.IssueDetailsComponent },
                         { path: '/reports', name: 'Reports', component: reports_component_1.ReportsComponent },
-                        { path: '/*other', name: 'Other', redirectTo: ['Home'] },
+                        { path: '/*other', name: 'Other', redirectTo: ['Login'] },
                         { path: '/not-found', name: 'NotFound', component: not_found_component_1.NotFoundComponent }
                     ]),
                     core_1.Component({

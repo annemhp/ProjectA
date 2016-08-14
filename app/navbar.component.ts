@@ -12,7 +12,10 @@ export class NavBarComponent {
 
     isLoggedIn = false;
     constructor(private _router: Router, private userService: UserService) {
-        _router.subscribe(val => this.hideNav(val))
+        _router.subscribe(val => this.hideNav(val));
+        if(!this.userService.isLoggedIn()){
+             this._router.navigate(['Login']);
+        }
     }
 
     isCurrentRoute(route) {
