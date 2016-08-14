@@ -1,5 +1,10 @@
-import {Component} from 'angular2/core';
+import {Component ,OnInit} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+
+
+import { LoginHomeComponent } from './login-home.component';
+import { LoginComponent } from './login.component';
+
 
 import {NavBarComponent} from './navbar.component'
 import {HomeComponent} from './home.component';
@@ -13,8 +18,12 @@ import {ReportsComponent} from './reports.component';
 import {UpdateFormComponent} from './update-form.component'
 import {SearchDepartmentComponent} from './search-department';
 
+import { UserService } from './user.service';
+
 @RouteConfig([
-    { path: '/', name: 'Home', component: HomeComponent },
+    { path: '/', component: LoginHomeComponent, name: 'LoginHome', useAsDefault: true },
+    { path: '/login', name: 'Login', component: LoginComponent },
+    { path: '/home', name: 'Home', component: HomeComponent },
     { path: '/issues', name: 'Issues', component: IssuesComponent },
     { path: '/issues/new', name: 'NewIssue', component: IssueFormComponent },
     { path: '/users/:id', name: 'IssueDetails', component: IssueDetailsComponent },
@@ -27,11 +36,19 @@ import {SearchDepartmentComponent} from './search-department';
 @Component({
     selector: 'my-app',
     template: `
-        <navbar></navbar>
+        <navbar ></navbar>
         <div class="container">
             <router-outlet></router-outlet>
         </div>
     `,
-    directives: [NavBarComponent, ROUTER_DIRECTIVES]
+    directives: [NavBarComponent, ROUTER_DIRECTIVES],
+    providers: [UserService]
 })
-export class AppComponent { }
+export class AppComponent {
+
+constructor(private userService: UserService) { }
+
+    ngOnInit(){
+       
+    }
+ }

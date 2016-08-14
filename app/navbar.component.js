@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './user.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1;
+    var core_1, router_1, user_service_1;
     var NavBarComponent;
     return {
         setters:[
@@ -19,23 +19,32 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (user_service_1_1) {
+                user_service_1 = user_service_1_1;
             }],
         execute: function() {
             NavBarComponent = (function () {
-                function NavBarComponent(_router) {
+                function NavBarComponent(_router, userService) {
                     this._router = _router;
+                    this.userService = userService;
                 }
                 NavBarComponent.prototype.isCurrentRoute = function (route) {
                     var instruction = this._router.generate(route);
                     return this._router.isRouteActive(instruction);
                 };
+                NavBarComponent.prototype.logout = function () {
+                    this.userService.logout();
+                    this._router.navigate(['Login']);
+                };
                 NavBarComponent = __decorate([
                     core_1.Component({
                         selector: 'navbar',
                         templateUrl: 'app/navbar.component.html',
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        directives: [router_1.ROUTER_DIRECTIVES],
+                        providers: [user_service_1.UserService]
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router])
+                    __metadata('design:paramtypes', [router_1.Router, user_service_1.UserService])
                 ], NavBarComponent);
                 return NavBarComponent;
             }());
