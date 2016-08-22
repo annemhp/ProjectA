@@ -3,13 +3,17 @@ import {RouterLink} from 'angular2/router';
 import {FormBuilder, ControlGroup} from 'angular2/common';
 import {IssuesService} from './issues.service';
 import {DepartmentCode} from './department-code';
+import {SearchComplaintComponent} from './search-complaint';
+
 import {SearchDepartmentComponent} from './search-department';
+
+
 import {StatusCode} from './status-code'
 
 @Component({
     templateUrl: 'app/issues.component.html',
     providers: [IssuesService],
-	directives: [RouterLink,SearchDepartmentComponent]
+	directives: [RouterLink,SearchDepartmentComponent,SearchComplaintComponent]
 })
 export class IssuesComponent implements OnInit {
 	issues: any[];
@@ -45,5 +49,16 @@ export class IssuesComponent implements OnInit {
 					this.issues = Object.keys(issues).map(key => key);
 			});
 		}
+	}
+
+	onIdSearch($event){
+		console.log($event);
+		console.log('I am Elon Musk');
+		this._service.getIssuesByComplaintId($event)
+			.subscribe(issues => {
+				this.issuesObj = issues,
+					this.issues = Object.keys(issues).map(key => key);
+			});
+		
 	}
 }

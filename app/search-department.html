@@ -2,11 +2,10 @@
     <div class="col-md-6 well">
         <form [ngFormModel]="form" (ngSubmit)="search()">
             <fieldset>
-                <legend>
+                <div>
                    Search by Status
-                </legend>
+                </div>
                 <div class="form-group">
-                    <label>Status</label>
                     <select ngControl="status" #frequency="ngForm" id="status" class="form-control" 
                     required>
                         <option value="all">All</option>

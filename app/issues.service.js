@@ -43,6 +43,12 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
                         get(this._url1 + ".json?orderBy=\"status\"&equalTo=\"" + status + '"')
                         .map(function (res) { return res.json(); });
                 };
+                IssuesService.prototype.getIssuesByComplaintId = function (id) {
+                    console.log(this._url1 + ".json?orderBy=\"complaintNo\"&equalTo=" + id);
+                    return this._http.
+                        get(this._url1 + ".json?orderBy=\"complaintNo\"&equalTo=" + id)
+                        .map(function (res) { return res.json(); });
+                };
                 IssuesService.prototype.addIssue = function (issue) {
                     return this._http.post(this._url1 + ".json", JSON.stringify(issue))
                         .map(function (res) { return res.json(); });

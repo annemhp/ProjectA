@@ -1,11 +1,16 @@
 <h1 [ngStyle] = "{'margin-left':'6%', 'margin-top':'1%'}">Issues</h1>
-<span [ngStyle] = "{'margin-left':'6%', 'margin-top':'1%'}"> <search-department (status) = "onStatusChange($event)"></search-department> 
+<span >
+	<search-by-id (complaintId) = "onIdSearch($event)"></search-by-id>
+ </span>
+<span [ngStyle] = "{'margin-left':'6%', 'margin-top':'1%'}"> <search-department (status) = "onStatusChange($event)">
+	</search-department> 
  </span>
 
 
 <table [ngStyle] = "{'margin-left':'6%', 'margin-top':'1%'}" class="table table-bordered">
 	<thead>
 		<tr>
+			<th>Complaint No</th>
 			<th>Name</th>
 			<th>Place</th>
 			<th>Department</th>
@@ -16,6 +21,7 @@
 	</thead>
 	<tbody>
 		<tr *ngFor="#issue of issues">
+			<td>{{ issuesObj[issue].complaintNo}}</td>
 			<td>{{ issuesObj[issue].name}}</td>
 			<td>{{ issuesObj[issue].place }}</td>
 			<td>{{ departmentsMap[issuesObj[issue].department] }}</td>

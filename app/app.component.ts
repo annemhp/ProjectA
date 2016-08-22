@@ -14,6 +14,7 @@ import {UpdateListComponent} from './update-list.component';
 import {ReportsComponent} from './reports.component';
 import {UpdateFormComponent} from './update-form.component'
 import {SearchDepartmentComponent} from './search-department';
+import {SearchComplaintComponent} from './search-complaint';
 
 @RouteConfig([
     { path: '/', component: LoginComponent, name: 'LoginHome', useAsDefault: true },

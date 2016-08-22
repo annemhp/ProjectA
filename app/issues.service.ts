@@ -33,6 +33,16 @@ export class IssuesService {
 			);
 	}
 
+	getIssuesByComplaintId(id) {
+
+		console.log(this._url1 + `.json?orderBy="complaintNo"&equalTo=` + id);
+		
+		return this._http.
+			get(this._url1 + `.json?orderBy="complaintNo"&equalTo=` + id )
+			.map(res => res.json()
+			);
+	}
+
 	addIssue(issue) {
 		return this._http.post(this._url1 + ".json", JSON.stringify(issue))
 			.map(res => res.json());
