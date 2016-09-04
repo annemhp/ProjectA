@@ -20,6 +20,7 @@ export class IssuesComponent implements OnInit {
 	issuesObj: any;
 	departmentCode = new DepartmentCode();
 	departmentsMap :any;
+	commentsLoading ;
 
 	statusCode = new StatusCode();
 	statuses = this.statusCode.statusMap;
@@ -30,11 +31,12 @@ export class IssuesComponent implements OnInit {
 
 	ngOnInit() {
 		this.departmentsMap = this.departmentCode.departmentsMap;
-
+		this.commentsLoading = true;
 		this._service.getIssues()
 			.subscribe(issues => {
 				this.issuesObj = issues,
-					this.issues = Object.keys(issues).map(key => key);
+					this.issues = Object.keys(issues).map(key => key),
+					this.commentsLoading = false;
 			});
 	}
 
@@ -43,17 +45,18 @@ export class IssuesComponent implements OnInit {
 		if($event=="all"){
 			this.ngOnInit();
 		}else{
+			this.commentsLoading = true;
 			this._service.getIssuesByStatus($event)
 			.subscribe(issues => {
 				this.issuesObj = issues,
-					this.issues = Object.keys(issues).map(key => key);
+				this.issues = Object.keys(issues).map(key => key),
+				this.commentsLoading = false;
 			});
 		}
 	}
 
 	onIdSearch($event){
 		console.log($event);
-		console.log('I am Elon Musk');
 		this._service.getIssuesByComplaintId($event)
 			.subscribe(issues => {
 				this.issuesObj = issues,

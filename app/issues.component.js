@@ -47,10 +47,12 @@ System.register(['angular2/core', 'angular2/router', './issues.service', './depa
                 IssuesComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this.departmentsMap = this.departmentCode.departmentsMap;
+                    this.commentsLoading = true;
                     this._service.getIssues()
                         .subscribe(function (issues) {
                         _this.issuesObj = issues,
-                            _this.issues = Object.keys(issues).map(function (key) { return key; });
+                            _this.issues = Object.keys(issues).map(function (key) { return key; }),
+                            _this.commentsLoading = false;
                     });
                 };
                 IssuesComponent.prototype.onStatusChange = function ($event) {
@@ -59,17 +61,18 @@ System.register(['angular2/core', 'angular2/router', './issues.service', './depa
                         this.ngOnInit();
                     }
                     else {
+                        this.commentsLoading = true;
                         this._service.getIssuesByStatus($event)
                             .subscribe(function (issues) {
                             _this.issuesObj = issues,
-                                _this.issues = Object.keys(issues).map(function (key) { return key; });
+                                _this.issues = Object.keys(issues).map(function (key) { return key; }),
+                                _this.commentsLoading = false;
                         });
                     }
                 };
                 IssuesComponent.prototype.onIdSearch = function ($event) {
                     var _this = this;
                     console.log($event);
-                    console.log('I am Elon Musk');
                     this._service.getIssuesByComplaintId($event)
                         .subscribe(function (issues) {
                         _this.issuesObj = issues,
