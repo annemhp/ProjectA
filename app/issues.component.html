@@ -6,7 +6,7 @@
 	</search-department> 
  </span>
 
-<i [ngStyle] = "{'margin-left':'6%', 'margin-top':'1%'}" *ngIf="commentsLoading" class="fa fa-spinner fa-spin fa-3x"></i>
+<i [ngStyle] = "{'margin-left':'6%', 'margin-top':'1%'}" *ngIf="commentsLoading" class="glyphicon glyphicon-refresh spinning"></i>
 <pagination   [items]="issues" (page-changed)="onPageChanged($event)"></pagination>
 <table [ngStyle] = "{'margin-left':'6%', 'margin-top':'1%'}" class="table table-bordered">
 	<thead>
