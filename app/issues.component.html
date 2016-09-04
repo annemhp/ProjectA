@@ -7,6 +7,7 @@
  </span>
 
 <i [ngStyle] = "{'margin-left':'6%', 'margin-top':'1%'}" *ngIf="commentsLoading" class="fa fa-spinner fa-spin fa-3x"></i>
+<pagination   [items]="issues" (page-changed)="onPageChanged($event)"></pagination>
 <table [ngStyle] = "{'margin-left':'6%', 'margin-top':'1%'}" class="table table-bordered">
 	<thead>
 		<tr>
@@ -20,7 +21,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="#issue of issues">
+		<tr *ngFor="#issue of pagedPosts">
 			<td>{{ issuesObj[issue].complaintNo}}</td>
 			<td>{{ issuesObj[issue].name}}</td>
 			<td>{{ issuesObj[issue].place }}</td>
@@ -36,5 +37,5 @@
 	</tbody>
 </table>
 <p>
-	<a [ngStyle] = "{'margin-left':'6%', 'margin-top':'1%'}" [routerLink]="['NewIssue']" class="btn btn-primary">Add Issue</a>
+	<a *ngIf="false" [ngStyle] = "{'margin-left':'6%', 'margin-top':'1%'}" [routerLink]="['NewIssue']" class="btn btn-primary">Add Issue</a>
 </p>

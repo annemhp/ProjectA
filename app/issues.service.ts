@@ -34,9 +34,7 @@ export class IssuesService {
 	}
 
 	getIssuesByComplaintId(id) {
-
-		console.log(this._url1 + `.json?orderBy="complaintNo"&equalTo=` + id);
-		
+	
 		return this._http.
 			get(this._url1 + `.json?orderBy="complaintNo"&equalTo=` + id )
 			.map(res => res.json()
