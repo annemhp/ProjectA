@@ -8,7 +8,6 @@ import {SearchComplaintComponent} from './search-complaint';
 import {SearchDepartmentComponent} from './search-department';
 import {PaginationComponent} from './pagination.component';
 
-
 import {StatusCode} from './status-code'
 
 @Component({

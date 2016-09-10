@@ -5,7 +5,7 @@
     <title>My MLA</title>
 
       <link rel="stylesheet" href="assets/stylesheets/bootstrap.css">
-   
+      <link rel="stylesheet" href="assets/stylesheets/font-awesome.css">
 
     <!-- 1. Load libraries -->
     <!-- IE required polyfills, in this exact order -->
@@ -19,7 +19,20 @@
      <script src="node_modules/angular2/bundles/router.dev.js"></script>
      <script src="node_modules/angular2/bundles/http.dev.js"></script>
       <script src="node_modules/underscore/underscore.js"></script>
-      
+    
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA0Q-7f27Dg51tuc6WfXyqSsZgUZ_Z4P9U",
+    authDomain: "projecta1-5156a.firebaseapp.com",
+    databaseURL: "https://projecta1-5156a.firebaseio.com",
+    storageBucket: "projecta1-5156a.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+    
 
     <!-- 2. Configure SystemJS -->
     <script>

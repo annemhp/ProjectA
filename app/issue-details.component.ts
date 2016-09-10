@@ -5,6 +5,7 @@ import {IssuesService} from './issues.service';
 import {UpdateFormComponent} from './update-form.component'
 import {UpdateListComponent} from './update-list.component';
 import {StatusCode} from './status-code';
+import * as firebase from 'firebase';
 
 @Component({
     templateUrl: 'app/issue-details.component.html',
@@ -18,16 +19,24 @@ export class IssueDetailsComponent implements OnInit {
 	isEdit = false;
 	statusCode = new StatusCode();
 	statuses = this.statusCode.statusMap;
+	image:string;
 
 	constructor(private _routeParams: RouteParams,
 		private _service: IssuesService) {
+			
 	}
 
 	ngOnInit() {
 		this.statuses = this.statusCode.statusMap;
 		this.issueId = this._routeParams.get("id");
 		this._service.getIssue(this.issueId)
-			.subscribe(issue => this.issue = issue);
+			.subscribe(issue =>{
+				this.issue = issue,
+				this.showImage(issue.imageUri);
+
+			} );
+			
+			
 
 		this._service.getUpdate(this.issueId)
 			.subscribe(updates => {
@@ -38,5 +47,14 @@ export class IssueDetailsComponent implements OnInit {
 
 	toggle() {
 		this.isEdit = !this.isEdit;
+	}
+
+	showImage(imageUrl){
+			console.log(imageUrl);
+			//const storageRef = firebase.storage().ref().child(imageUrl);
+			//console.log(storageRef);
+			
+			
+			//storageRef.getDownloadURL().then(url=> this.image=url);
 	}
 }
