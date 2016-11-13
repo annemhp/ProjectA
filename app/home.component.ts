@@ -37,9 +37,8 @@ export class HomeComponent  {
         this._service.getReport()
             .subscribe(report => {
                 this.reportObj = report, 
-               
                 this.panelText1 = this.reportObj['all'].open + this.reportObj['all'].inprogress
-                +this.reportObj['all'].invalid;+this.reportObj['all'].resolved;
+                +this.reportObj['all'].invalid+this.reportObj['all'].resolved;
                 this.panelText2 = this.reportObj['all'].resolved;
                 this.panelText3 = this.panelText1 -  this.panelText2;
                 

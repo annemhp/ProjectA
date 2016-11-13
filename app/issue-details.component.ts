@@ -31,9 +31,7 @@ export class IssueDetailsComponent implements OnInit {
 		this.issueId = this._routeParams.get("id");
 		this._service.getIssue(this.issueId)
 			.subscribe(issue =>{
-				this.issue = issue,
-				this.showImage(issue.imageUri);
-
+				this.issue = issue
 			} );
 			
 			
@@ -49,12 +47,8 @@ export class IssueDetailsComponent implements OnInit {
 		this.isEdit = !this.isEdit;
 	}
 
-	showImage(imageUrl){
-			console.log(imageUrl);
-			//const storageRef = firebase.storage().ref().child(imageUrl);
-			//console.log(storageRef);
-			
-			
-			//storageRef.getDownloadURL().then(url=> this.image=url);
+	openNewTab(){
+		
+		window.open(this.issue.imageUri);
 	}
 }

@@ -15,6 +15,7 @@
     <p><span style="color:brown">Status:</span> {{statuses[issue.status]}} </p>
 
     <button (click)="toggle()" *ngIf="!isEdit" class="btn btn-primary">Update Status</button>
+    <button  (click)="openNewTab()" *ngIf="issue.imageUri!=null" class="btn btn-primary">View Image Attachment</button>
   </div>
 
 </div>

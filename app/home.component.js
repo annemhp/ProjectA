@@ -40,8 +40,7 @@ System.register(['angular2/core', './home-panel.component', './issues.service'],
                         .subscribe(function (report) {
                         _this.reportObj = report,
                             _this.panelText1 = _this.reportObj['all'].open + _this.reportObj['all'].inprogress
-                                + _this.reportObj['all'].invalid;
-                        +_this.reportObj['all'].resolved;
+                                + _this.reportObj['all'].invalid + _this.reportObj['all'].resolved;
                         _this.panelText2 = _this.reportObj['all'].resolved;
                         _this.panelText3 = _this.panelText1 - _this.panelText2;
                     });

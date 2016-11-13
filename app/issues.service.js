@@ -25,7 +25,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
             IssuesService = (function () {
                 function IssuesService(_http) {
                     this._http = _http;
-                    this._url = "https://projectabeta-3e48d.firebaseio.com";
+                    this._url = "https://vskmymla.firebaseio.com";
                     this._url1 = this._url + "/issues";
                     this._url_report = this._url + "/reports";
                 }

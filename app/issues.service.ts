@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class IssuesService {
-	private _url ="https://projectabeta-3e48d.firebaseio.com";
+	private _url ="https://vskmymla.firebaseio.com";
 
 	private _url1 = this._url+"/issues";
 	private _url_report = this._url+"/reports";

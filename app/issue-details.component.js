@@ -47,8 +47,7 @@ System.register(['angular2/core', 'angular2/router', './issues.service', './upda
                     this.issueId = this._routeParams.get("id");
                     this._service.getIssue(this.issueId)
                         .subscribe(function (issue) {
-                        _this.issue = issue,
-                            _this.showImage(issue.imageUri);
+                        _this.issue = issue;
                     });
                     this._service.getUpdate(this.issueId)
                         .subscribe(function (updates) {
@@ -58,11 +57,8 @@ System.register(['angular2/core', 'angular2/router', './issues.service', './upda
                 IssueDetailsComponent.prototype.toggle = function () {
                     this.isEdit = !this.isEdit;
                 };
-                IssueDetailsComponent.prototype.showImage = function (imageUrl) {
-                    console.log(imageUrl);
-                    //const storageRef = firebase.storage().ref().child(imageUrl);
-                    //console.log(storageRef);
-                    //storageRef.getDownloadURL().then(url=> this.image=url);
+                IssueDetailsComponent.prototype.openNewTab = function () {
+                    window.open(this.issue.imageUri);
                 };
                 IssueDetailsComponent = __decorate([
                     core_1.Component({

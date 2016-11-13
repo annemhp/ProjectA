@@ -13,7 +13,7 @@ export class UserService {
 
   login(email, password) {
     this.res = new Object();
-    if (email == "rakesh@mymla.com" && password == "asdf456") {
+    if (email == "satish@mymla.com" && password == "Japan@12") {
       this.res.success = true;
       this.res.auth_token = this.guid();
       localStorage.setItem('auth_token', this.res.auth_token);
